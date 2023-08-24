@@ -3,10 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const sequalize = require('./init/sequalize');
-
+const morgan = require('morgan');
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(morgan('combined'))
 app.use(express.urlencoded({ extended: true }));
 
 // Routes

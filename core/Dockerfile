@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+RUN apt-get clean && apt-get autoclean
+
 # Update package lists and install necessary dependencies
 RUN apt-get update && apt-get install -y \
     python3 \
