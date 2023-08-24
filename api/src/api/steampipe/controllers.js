@@ -9,7 +9,7 @@ module.exports.query = async(req, res) => {
             return res.status(500).send("Query not found");
         }
         const sql_query = Query[query].replace(/{{connection_id}}/g, connection_id);
-        const [results, metadata] = await sequalize.query(sql_query);
+        const [results, metadata] = await sequelize.query(sql_query);
         return res.send(results);
     } catch (error) {
         return res.status(500).send(error.message)
