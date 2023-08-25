@@ -11,27 +11,10 @@ const sequelize = new Sequelize({
 });
 
 try {
-    sequelize.authenticate();
-    console.log('[CloudGhost-API]: Connection has been established successfully.');
+    sequelize.authenticate().then(() => console.log('[CloudGhost-API]: Connection has been established successfully.')).catch((error) => new Error(error));
 } catch (error) {
     console.error('[CloudGhost-API]: Unable to connect to the database:', error);
     throw error;
 }
 
 module.exports = sequelize; 
-
-// authenticate sequlize in try-catch before exporting
-
-
-// module.exports = async() => {
-//     try {
-//         await sequelize.authenticate();
-//         console.log('[CloudGhost-API]: Connection has been established successfully.');
-//         return sequelize;
-//     } catch (error) {
-//         console.error('[CloudGhost-API]: Unable to connect to the database:', error);
-//         throw error;
-//     }
-// }
-
-

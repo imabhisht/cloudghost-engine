@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 
+app.get('/',(req,res) => res.status(200).send({message: "Welcome to CloudGhost API"}));
+
 app.use('/cq/api', require('./api/steampipe/routes'));
 
 app.get('/cq/api/status', (req, res) => {
