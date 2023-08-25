@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('combined'))
 app.use(express.urlencoded({ extended: true }));
-sequalize()
+sequalize.authenticate().then(() => console.log('[CloudGhost-API]: Connection has been established with Steampipe DB successfully.')).catch((error) => console.error('[CloudGhost-API]: Unable to connect to the database:', error));
 // Routes
 
 app.get('/',(req,res) => res.status(200).send({message: "Welcome to CloudGhost API"}));

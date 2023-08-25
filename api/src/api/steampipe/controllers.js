@@ -1,4 +1,4 @@
-const sequelize = require('../../init/sequalize')();
+const sequelize = require('../../init/sequalize');
 const Query = require("./query.json");
 
 module.exports.query = async(req, res) => {
@@ -10,8 +10,10 @@ module.exports.query = async(req, res) => {
         }
         const sql_query = Query[query].replace(/{{connection_id}}/g, connection_id);
         const [results, metadata] = await sequelize.query(sql_query);
+        console.log(results);
         return res.send(results);
     } catch (error) {
+        console.log(error);
         return res.status(500).send(error.message)
     }
 }

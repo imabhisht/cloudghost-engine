@@ -16,4 +16,4 @@ COPY . .
 # Expose the port that the application will run on
 
 # Start the application
-CMD [ "node", "./src/app.js" ]
+CMD [ "node", "./src/index.js" ]
