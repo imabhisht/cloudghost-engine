@@ -1,4 +1,4 @@
-const sequelize = require('../../init/sequalize');
+const sequelize = require('../../init/sequalize')();
 const Query = require("./query.json");
 
 module.exports.query = async(req, res) => {

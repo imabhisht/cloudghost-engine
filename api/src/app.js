@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('combined'))
 app.use(express.urlencoded({ extended: true }));
-
+sequalize()
 // Routes
 
 app.get('/',(req,res) => res.status(200).send({message: "Welcome to CloudGhost API"}));
