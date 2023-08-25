@@ -10,11 +10,16 @@ const sequelize = new Sequelize({
     password: process.env.CG_STEAMPIPE_PASSWORD,
 });
 
-try {
-    sequelize.authenticate().then(() => console.log('[CloudGhost-API]: Connection has been established successfully.')).catch((error) => new Error(error));
-} catch (error) {
-    console.error('[CloudGhost-API]: Unable to connect to the database:', error);
-    throw error;
+const initialize = async () => {
+    try {
+        await sequelize.authenticate()
+        console.log('[CloudGhost-API]: Connection has been established successfully.');
+        return sequelize;
+    } catch (error) {
+        console.error('[CloudGhost-API]: Unable to connect to the database:', error);
+        throw error;
+    }
 }
 
-module.exports = sequelize; 
+
+module.exports = initialize; 
