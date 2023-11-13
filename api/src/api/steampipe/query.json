@@ -1,4 +1,5 @@
 {
     "aws_account_info": "SELECT * FROM {{connection_id}}.aws_account",
-    "aws_":"select instance_id as bhragav_id, instance_state, launch_time, state_transition_time from {{connection_id}}.aws_ec2_instance where instance_state = 'stopped' and state_transition_time <= (current_date - interval '60' day);"
+    "type_of_query": "query",
+    "aws_ec2_instances_metric_cpu_utilization_daily_basic_info_all":"SELECT * FROM {{connection_id}}.aws_ec2_instance_metric_cpu_utilization_daily"
 }

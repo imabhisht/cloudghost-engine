@@ -16,6 +16,8 @@ app.get('/',(req,res) => res.status(200).send({message: "Welcome to CloudGhost A
 
 app.use('/cq/api', require('./api/steampipe/routes'));
 
+app.use('/cg/aws', require('./api/aws/routes'));
+
 app.get('/cq/api/status', (req, res) => {
     res.send('Ready to Query Steampipe on this Route!');
 }

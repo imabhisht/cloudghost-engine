@@ -1,0 +1,6 @@
+{
+    "aws_account_info": "SELECT * FROM {{connection_id}}.aws_account",
+    "type_of_query": "query",
+    "aws_ec2_instances_metric_cpu_utilization_daily_basic_info_all":"SELECT * FROM {{connection_id}}.aws_ec2_instance_metric_cpu_utilization_daily;",
+    "aws_ec2_instance": "select * from {{connection_id}}.aws_ec2_instance;"
+}

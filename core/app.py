@@ -1,9 +1,22 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
+from dotenv import load_dotenv
+load_dotenv()
 import os;
 import subprocess;
 import json;
+import threading;
+import logging;
+import time
+from sqlalchemy import text
+from src.query.query_engine import excute_query as aws_query_executor
+
+
 app = Flask(__name__)
+
 base_route = '/cq/core'
+
+
+
 @app.route('/', methods=['GET'])
 def info():
     # Get Env Variable
@@ -41,6 +54,9 @@ def stop_steampipe():
         print(e)
         return "Error executing Steampipe command"
 
+
+
+
 @app.route('/cq/core/config/aws', methods=['POST'])
 def update_config():
     config_file_path = os.path.expanduser('~/.steampipe/config/aws.spc')
@@ -65,8 +81,41 @@ def update_config():
         config_file.write(new_config_content)
 
     return 'Config updated successfully'
+
+
+
+@app.route('/cq/core/query/aws', methods=['POST'])
+def query_aws():
+    request_data = request.get_json()
+    force = request_data.get('force', False)
+    query = request_data.get('query', '')
+    connection_id = request_data.get('connection_id', '')
+    query_variables = request_data.get('variables', {})
+    try:
+        result = aws_query_executor({
+            "connection_id": connection_id,
+            "query": query,
+            "variables": query_variables
+        })
+
+        return {
+            "status": "success",
+            "message": "AWS Query executed successfully",
+            "data": result
+        } , 200
+
+    except Exception as e:
+        print("Error: ",e)
+        return {
+            "status": "error",
+            "message": str(Exception(e)),
+            "data": None
+        }, 500
+
+
+
 if __name__ == '__main__':
     ##PORT FROM ENV
-    PORT = int(os.environ.get('API_PORT'))
+    PORT = int(os.environ.get('API_PORT')) or 5550
     app.run(host='0.0.0.0', port=PORT, debug=True)
 

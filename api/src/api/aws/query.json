@@ -1,0 +1,11 @@
+{
+    "aws":{
+        "ec2":{
+            "instance":{
+                "metric_cpu_utilization_hourly":{
+                    "query": ""
+                }
+            }
+        }
+    }
+}

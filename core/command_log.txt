@@ -1,0 +1,98 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.1.9:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 728-477-959
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.1.9:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 728-477-959
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.1.9:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 728-477-959
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 728-477-959
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.1.9:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 728-477-959
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.1.9:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 728-477-959
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.1.9:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 514-368-268
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.178.15:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5550
+ * Running on http://192.168.178.15:5550
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:36:53] "GET /testing HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:36:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:37:08] "GET /testing HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:37:10] "GET /testing HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:37:12] "GET /testing HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/imabhisht/Documents/Project/Lookover/cg/core/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 537-754-189
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:38:41] "POST /cq/core/start HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:39:10] "POST /cq/core/config/aws HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Oct/2023 10:41:10] "POST /cq/core/stop HTTP/1.1" 200 -
