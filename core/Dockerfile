@@ -14,21 +14,18 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && rm -rf awscliv2.zip \
     && ./aws/install
 
-# Install Steampipe
-# RUN /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/turbot/steampipe/main/install.sh)"
-
 # Set the working directory
 WORKDIR /app
 
-COPY src /app/src
+# Copy Everything
+COPY . /app
 
+# Install Steampipe
 RUN chmod +x /app/src/install.sh
 RUN /bin/sh /app/src/install.sh
 
-# Copy the entrypoint script
-COPY entrypoint.sh /entrypoint.sh
-COPY app.py /app/app.py
-RUN chmod +x /entrypoint.sh
+# Prepare the entrypoint script
+RUN chmod +x /app/entrypoint.sh
 
 # Create a non-root user and switch to that user
 RUN useradd -m -s /bin/bash steampipe
@@ -40,14 +37,14 @@ ENV PATH="/home/steampipe/.steampipe/plugins:${PATH}"
 # Install the Steampipe AWS plugin
 RUN steampipe plugin install steampipe aws
 
-# Install Flask Python package
-RUN pip3 install flask
-
-RUN pip3 install python-dotenv
+# Install Python package
+RUN pip3 install -r /app/requirements.txt
 
 # Expose ports for Flask and Steampipe (adjust as needed)
 EXPOSE 5000
-EXPOSE 9193
+
+## Uncomment to expose the Prometheus metrics endpoint
+# EXPOSE 9193
 
 # Define the entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
