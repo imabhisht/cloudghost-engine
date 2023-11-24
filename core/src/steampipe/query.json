@@ -1,0 +1,15 @@
+{
+    "aws_ec2_instances_fetch_all": {
+        "query": "SELECT * FROM {{connection_id}}.aws_ec2_instance;",
+        "index": "aws_ec2_instance",
+        "type": "aws_ec2_instance"
+    },
+    "aws_ec2_instance": {
+        "query": "SELECT * FROM {{connection_id}}.aws_ec2_instance where instance_id = '{{instance_id}}';",
+        "index": "aws_ec2_instance",
+        "type": "aws_ec2_instance"
+    },
+    "aws_ec2_mat":{
+        "query": "select instance_id, timestamp, round(minimum :: numeric, 2) as min_cpu, round(maximum :: numeric, 2) as max_cpu, round(average :: numeric, 2) as avg_cpu, sample_count from {{connection_id}}.aws_ec2_instance_metric_cpu_utilization_daily where average < 1 order by instance_id, timestamp;"
+    }
+}

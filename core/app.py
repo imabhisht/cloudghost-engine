@@ -6,16 +6,15 @@ import subprocess;
 import json;
 import threading;
 import logging;
-import time
+import time;
+import src.elasticsearch.app as elasticsearch_app
 from sqlalchemy import text
-from src.query.query_engine import excute_query as aws_query_executor
-
+from src.steampipe.query_engine import excute_query as aws_query_executor
+from src.steampipe.query_engine import excute_query_two as aws_query_executor_2
+from src.query.engine import excute_scheduler_query as excute_scheduler_query
 
 app = Flask(__name__)
-
 base_route = '/cq/core'
-
-
 
 @app.route('/', methods=['GET'])
 def info():
@@ -27,8 +26,7 @@ def info():
         "steampipe_introspection": steampipe_introspection
     }
 
-
-@app.route('/cq/core/start', methods=['POST'])
+@app.route('/steampipe/start', methods=['POST'])
 def start_steampipe():
     try:
         subprocess.run(["steampipe", "service", "start", "--show-password" ], check=True)
@@ -41,7 +39,7 @@ def start_steampipe():
         print(e)
         return "Error executing Steampipe command"
 
-@app.route('/cq/core/stop', methods=['POST'])
+@app.route('/steampipe/stop', methods=['POST'])
 def stop_steampipe():
     try:
         subprocess.run(["steampipe", "service", "stop"], check=True)
@@ -55,9 +53,7 @@ def stop_steampipe():
         return "Error executing Steampipe command"
 
 
-
-
-@app.route('/cq/core/config/aws', methods=['POST'])
+@app.route('/steampipe/config/aws', methods=['POST'])
 def update_config():
     config_file_path = os.path.expanduser('~/.steampipe/config/aws.spc')
     # config_file_path = os.path.expanduser('./test/aws.spc')    
@@ -84,7 +80,7 @@ def update_config():
 
 
 
-@app.route('/cq/core/query/aws', methods=['POST'])
+@app.route('/steampipe/query', methods=['POST'])
 def query_aws():
     request_data = request.get_json()
     force = request_data.get('force', False)
@@ -92,7 +88,7 @@ def query_aws():
     connection_id = request_data.get('connection_id', '')
     query_variables = request_data.get('variables', {})
     try:
-        result = aws_query_executor({
+        result = aws_query_executor_2({
             "connection_id": connection_id,
             "query": query,
             "variables": query_variables
@@ -113,9 +109,27 @@ def query_aws():
         }, 500
 
 
+@app.route('/steampipe/scheduler', methods=['POST'])
+def scheduler():
+    request_data = request.get_json()
+    force = request_data.get('force', False)
+    query = request_data.get('query', '')
+    connection_id = request_data.get('connection_id', '')
+    query_variables = request_data.get('variables', {})
+    try:
+        result = excute_scheduler_query(query,force,connection_id,query_variables)
+
+        return result
+
+    except Exception as e:
+        print("Error: ",e)
+        return {
+            "status": "error",
+            "message": str(Exception(e)),
+            "data": None
+        }, 500
 
 if __name__ == '__main__':
-    ##PORT FROM ENV
     PORT = int(os.environ.get('API_PORT')) or 5550
     app.run(host='0.0.0.0', port=PORT, debug=True)
 
